@@ -52,6 +52,16 @@ app.get('/', function(req, res) {
   res.send('Welcome to my restaurant... How can I help you ?');
 })
 
+app.get('/drinks', (req,res)=>{
+    var cold_drinks = {
+        drink1 : 'Hell',
+        drink2 : 'Chilli Guava Mojito',
+        drink3 : 'Lemon Mojito',
+        drink4 : 'Peach Mojito',
+    }
+    res.send(cold_drinks);
+})
+
 app.get('/chicken',(req,res)=>{
     var customized_chicken = {
         name : 'green chicken',
