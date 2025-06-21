@@ -62,6 +62,10 @@ app.get('/drinks', (req,res)=>{
     res.send(cold_drinks);
 })
 
+app.post('/person',(req,res)=>{
+    res.send("Data is saved");
+})
+
 app.get('/chicken',(req,res)=>{
     var customized_chicken = {
         name : 'green chicken',
