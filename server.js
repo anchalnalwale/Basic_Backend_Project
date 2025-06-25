@@ -11,19 +11,18 @@ app.get('/', function (req, res) {
   res.send('Welcome to my restaurant... How can I help you ?');
 })
 
-app.post('/person', (req, res) => {
-  const data = req.body;
-  const newPerson = new Person(data);
-  newPerson.save((error, savedPerson) => {
-    if (error) {
-      console.log('Error saving person:', error);
-      res.status(500).json({ error: 'Internal Server error' })
-    }
-    else {
-      console.log('Data Saved successfully');
-      res.status(200).json(savedPerson);
-    }
-  })
+app.post('/person', async (req, res) => {
+  try {
+    const data = req.body;
+    const newPerson = new Person(data);
+    const response = await newPerson.save();
+    console.log('data saved');
+    res.status(200).json(response);
+  }
+  catch(err) {
+    console.log(err);
+    res.status(500).json({errpr: 'Internal Server Error'});
+  }
 })
 
 app.listen(3000, () => {
