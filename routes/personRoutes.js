@@ -43,4 +43,15 @@ router.get('/:workType', async(req,res) =>{
   }
 });
 
+router.put('/:id',async(req,res)=>{
+  try{
+    const personId = req.params.id;
+    const updatedPersonData = req.body; 
+    const response = await Person.findByIdAndUpdate(personId,updatedPersonData)
+  }catch(err){
+    console.log(err);
+    res.status(500).json({error: 'Internal Server Error'});
+  }
+});
+
 module.exports = router;
