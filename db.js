@@ -1,5 +1,7 @@
 const  mongoose  = require("mongoose");
-const mongoURL = 'mongodb://localhost:27017/hotels';
+// const mongoURL = 'mongodb://localhost:27017/hotels';
+const mongoURL = 'mongodb+srv://nalwaleanchal:Nalwale2004@cluster0.hrrtn5r.mongodb.net/'
+
 mongoose.connect(mongoURL,{
     useNewUrlParser: true,
     useUnifiedTopology: true
