@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
     res.status(200).json(data);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: 'Internal Error' });
   }
 })
 
@@ -51,10 +51,10 @@ router.delete('/:id', async (req, res) => {
       return res.status(404).json({ error: 'Menu not found' });
     }
     console.log('data deleted');
-    res.status(200).json({ message: 'Menu Deleted Successfully' });
+    res.status(200).json({ message: 'Deleted Successfully' });
   } catch (err) {
     console.log(err);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: 'Internal Error' });
   }
 });
 

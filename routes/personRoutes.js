@@ -70,10 +70,10 @@ router.delete('/:id',async(req,res) => {
       return res.status(404).json({error: 'Person not found'});
     }
     console.log('data deleted');
-    res.status(200).json({message: 'Person Denied Successfully'});
+    res.status(200).json({message: 'Denied Successfully'});
   }catch(err) {
     console.log(err);
-    res.status(500).json({error: 'Internal Server Error'});
+    res.status(500).json({error: 'Internal Error'});
   }
 })
 
