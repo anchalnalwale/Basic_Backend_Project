@@ -25,10 +25,10 @@ const personSchema = new mongoose.Schema({
     address : {
         type : String,
     },
-    salary : {
-        type : Number,
-        required : true,
-    }
+    // salary : {
+    //     type : Number,
+    //     required : true,
+    // }
 });
 
 const Person = mongoose.model('Person',personSchema);
