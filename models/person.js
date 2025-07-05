@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const passport = require('passport');
 
 const personSchema = new mongoose.Schema({
     name: {
@@ -28,6 +29,14 @@ const personSchema = new mongoose.Schema({
     salary : {
         type : Number,
         required : true,
+    },
+    username: {
+        type: String,
+        required: true
+    },
+    passport: {
+        type: String,
+        type: Boolean
     }
 });
 
