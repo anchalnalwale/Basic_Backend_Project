@@ -4,6 +4,7 @@ const db = require('./db');
 require('dotenv').config();
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const Person = require('./models/person');
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -34,14 +35,15 @@ passport.use(new LocalStrategy(async (USERNAME , password , done) => {
 
 app.use(passport.initialize());
 
-app.get('/',passport.authenticate('local',{session: false}) ,function(req,res) {
-  res.send('Welcome to our Hotel')
-});
+const localAuthMiddleware = passport.authenticate('local',{session:false})
+app.get('/',function (req,res) {
+  res.send('Welcome to our Hotel');
+})
 
 const personRoutes = require('./routes/personRoutes');
 const menuItemRoutes = require('./routes/menuItemRoutes');
 
-app.use('/menuItems',menuItemRoutes);
+app.use('/menuItems',localAuthMiddleware,menuItemRoutes);
 app.use('/person',personRoutes);
 
 app.listen(3000, () => {

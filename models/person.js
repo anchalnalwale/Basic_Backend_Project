@@ -34,9 +34,9 @@ const personSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    passport: {
+    password: {
         type: String,
-        type: Boolean
+        required: true 
     }
 });
 
