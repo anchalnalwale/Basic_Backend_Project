@@ -3,7 +3,7 @@ const app = express();
 const db = require('./db');
 require('dotenv').config();
 const passport = require('./auth');
-// const LocalStrategy = require('passport-local').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 // const Person = require('./models/person');
 
 const bodyParser = require('body-parser');
@@ -43,8 +43,8 @@ app.get('/',function (req,res) {
 const personRoutes = require('./routes/personRoutes');
 const menuItemRoutes = require('./routes/menuItemRoutes');
 
-app.use('/menuItems',localAuthMiddleware,menuItemRoutes);
-app.use('/person',personRoutes);
+app.use('/menuItems',menuItemRoutes);
+app.use('/person',localAuthMiddleware,personRoutes);
 
 app.listen(3000, () => {
   console.log('Listening on port 3000');

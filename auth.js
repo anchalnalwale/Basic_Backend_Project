@@ -2,7 +2,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const Person = require('./models/person');
 
-assport.use(new LocalStrategy(async (USERNAME , password , done) => {
+passport.use(new LocalStrategy(async (USERNAME , password , done) => {
   try{
     console.log('Received credentials:', USERNAME, password);
     const user = await Person.findOne({username: USERNAME});
