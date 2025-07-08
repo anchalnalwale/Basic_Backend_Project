@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Person = require('./../models/person');
 
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
   try {
     const data = req.body;
     const newPerson = new Person(data);
